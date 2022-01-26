@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ListElement } from "./ListElement.jsx";
 
 export const Lista = () => {
-	const [lista, setLista] = useState(["A", "B"]);
+	const [lista, setLista] = useState([""]);
 	const [nuevaTarea, setNuevaTarea] = useState("");
 	return (
 		<div id="lista">
