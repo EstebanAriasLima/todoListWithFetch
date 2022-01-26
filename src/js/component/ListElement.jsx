@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import propTypes from "prop-types";
-import { Lista } from "./Lista.jsx";
 
 export const ListElement = (props) => {
 	console.log(props);
 	return (
-		<div className="TodoList" id="listElement" placeholder="No Task">
+		<div className="TodoList" id="listElement">
 			{props.tarea}
 			<span
 				onClick={(evento) => {

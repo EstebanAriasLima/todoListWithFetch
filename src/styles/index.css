@@ -84,3 +84,10 @@ span{
     padding-left:20px;
     padding-right: 10px;
 }
+#footerList{
+    border-top: lightgray 1px solid;
+    font-size: 15px;
+    color: gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

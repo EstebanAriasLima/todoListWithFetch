@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { ListElement } from "./ListElement.jsx";
 
 export const Lista = () => {
-	const [lista, setLista] = useState([""]);
+	const [lista, setLista] = useState([]);
 	const [nuevaTarea, setNuevaTarea] = useState("");
 	return (
 		<div id="lista">
@@ -12,7 +11,9 @@ export const Lista = () => {
 					id="input"
 					className="TodoList"
 					placeholder={
-						lista == "" ? "No Task" : "What needs to be gone?"
+						lista == ""
+							? "No Tasks, add a task"
+							: "What needs to be done?"
 					}
 					value={nuevaTarea}
 					onChange={(evento) => {
@@ -26,7 +27,7 @@ export const Lista = () => {
 							setNuevaTarea("");
 						}
 					}}></input>
-				<div className="" placeholder="No Task">
+				<>
 					{lista.map((tarea, index) => {
 						return (
 							<ListElement
@@ -37,6 +38,9 @@ export const Lista = () => {
 							/>
 						);
 					})}
+				</>
+				<div className="TodoList" id="footerList">
+					{"items left " + lista.length}
 				</div>
 			</div>
 			<div className="TodoList shadowList" id="bottom-list1"></div>
