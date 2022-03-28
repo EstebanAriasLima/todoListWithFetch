@@ -5,7 +5,8 @@ export const ListElement = (props) => {
 	console.log(props);
 	return (
 		<div className="TodoList" id="listElement">
-			{props.tarea}
+			{props.tarea.label}
+			{/* {props.tarea} */}
 			<span
 				onClick={(evento) => {
 					props.handleList((prev) => {
@@ -28,7 +29,7 @@ export const ListElement = (props) => {
 	);
 };
 ListElement.propTypes = {
-	tarea: PropTypes.string,
+	tarea: PropTypes.object,
 	handleList: PropTypes.func,
 	indice: PropTypes.number,
 };
