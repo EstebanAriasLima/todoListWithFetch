@@ -3,7 +3,8 @@ import { ListElement } from "./ListElement.jsx";
 
 export const Lista = () => {
 	const [lista, setLista] = useState([]);
-	const [nuevaTarea, setNuevaTarea] = useState({ label: "", done: "" });
+	const [nuevaTarea, setNuevaTarea] = useState({});
+
 	const getTodos = async () => {
 		const response = await fetch(
 			"https://assets.breatheco.de/apis/fake/todos/user/esteban-arias"
@@ -34,7 +35,7 @@ export const Lista = () => {
 		getTodos();
 	};
 
-	const putLista = async (newList) => {
+	const putLista = async (nuevaLista) => {
 		const response = await fetch(
 			"https://assets.breatheco.de/apis/fake/todos/user/esteban-arias",
 			{
@@ -42,7 +43,7 @@ export const Lista = () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(newList),
+				body: JSON.stringify(nuevaLista),
 			}
 		);
 		return response;
@@ -57,6 +58,7 @@ export const Lista = () => {
 				},
 			}
 		);
+		crearUsuarioDeLaLista();
 	};
 
 	useEffect(() => {
@@ -69,6 +71,7 @@ export const Lista = () => {
 				<input
 					id="input"
 					className="TodoList"
+					defaultValue={""}
 					placeholder={
 						lista == ""
 							? "No Tasks, add a task"
@@ -104,6 +107,10 @@ export const Lista = () => {
 								tarea={tarea}
 								handleList={setLista}
 								indice={index}
+								lista={lista}
+								putLista={putLista}
+								getTodos={getTodos}
+								deleteLista={deleteLista}
 							/>
 						);
 					})}
